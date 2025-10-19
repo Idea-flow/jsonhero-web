@@ -40,6 +40,9 @@ Optionally set other secrets listed at the end of `wrangler.toml`.
 wrangler publish #报错了 可能不能用了
 wrangler deploy
 
+wrangler dev
+
+
 npm run deploy:production # 这个是可以的
 
 
