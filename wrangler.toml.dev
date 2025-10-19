@@ -28,6 +28,7 @@ kv_namespaces = [
 
 [env.production.vars]
 GRAPH_JSON_COLLECTION = "jsonhero-prod"
+SESSION_SECRET = "abc123"
 # Secrets
 # [SESSION_STORAGE]
 # [GRAPH_JSON_API_KEY]

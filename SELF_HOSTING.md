@@ -46,4 +46,17 @@ wrangler dev
 npm run deploy:production # 这个是可以的
 
 
+
+
+
+npx wrangler secret put SESSION_SECRET  #设置变量
+
+wrangler secret put SESSION_SECRET --env=production
+
+
+Enter a secret value: ******* 
+🌀 Creating the secret for the Worker "jsonhero-io" 
+✨ Success! Uploaded secret SESSION_SECRET
+
+
 ```

@@ -2,7 +2,7 @@ import { createCookieSessionStorage } from "remix";
 
 import { Theme, isTheme } from "~/components/ThemeProvider";
 
-const sessionSecret = SESSION_SECRET;
+const sessionSecret = SESSION_SECRET || "default_session_secret_for_development";
 
 const themeStorage = createCookieSessionStorage({
   cookie: {
