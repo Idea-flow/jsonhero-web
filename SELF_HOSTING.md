@@ -18,6 +18,7 @@ Edit the following variables in `wrangler.toml` and `wrangler.toml.dev`:
 - `kv_namespaces`: Run the following comands to create a new KV namespace.
     ```bash
     wrangler kv:namespace create DOCUMENTS # gives namespace id
+  npx wrangler kv:namespace create DOCUMENTS
     wrangler kv:namespace create DOCUMENTS --preview # gives preview id for namespace
     ```
     Replace current entry for `kv_namespaces` as:
@@ -36,5 +37,10 @@ Optionally set other secrets listed at the end of `wrangler.toml`.
 
 ### Publish worker
 ```bash
-wrangler publish
+wrangler publish #报错了 可能不能用了
+wrangler deploy
+
+npm run deploy:production # 这个是可以的
+
+
 ```

@@ -11,7 +11,7 @@ export function NewDocument() {
         <DragAndDropForm />
 
         <div className="mt-4">
-          <Title className="mb-2 text-slate-200">No JSON? Try it out:</Title>
+          {/*<Title className="mb-2 text-slate-200">No JSON? Try it out 123:</Title>*/}
           <SampleUrls />
         </div>
       </div>

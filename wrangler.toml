@@ -1,12 +1,11 @@
 name = "jsonhero-io"
 type = "javascript"
 compatibility_date = "2022-02-01"
-
-account_id = "0e405dda228e3448f1366acb0bc341ef"
+account_id = "adad29e4f868768636890dc93d28e0e3"
 workers_dev = true
 
 kv_namespaces = [ 
-  { binding = "DOCUMENTS", id = "8c6a9a71fc504abdaaa7aa409c7b2abd" }
+  { binding = "DOCUMENTS", id = "b2c86cc4996d4e17b06b2cf1c2b1cdef", preview_id = "2efcfabda70c4c9eb5ec26ec3e60cae4" }
 ]
 
 [vars]
@@ -14,7 +13,7 @@ GRAPH_JSON_COLLECTION = "jsonhero-dev"
 
 [site]
 bucket = "./public"
-entry-point = "."
+entry-point = "./dist/worker.js"
 
 [build]
 command = "npm run build:worker"
@@ -27,11 +26,12 @@ format="service-worker"
 route = "jsonhero.io/*"
 zone_id = "af3c12add61e94b88b3d2cbfb6f65782"
 kv_namespaces = [ 
-  { binding = "DOCUMENTS", id = "e517c369774a443eba95afff9128f7b6" }
+  { binding = "DOCUMENTS", id = "b2c86cc4996d4e17b06b2cf1c2b1cdef" }
 ]
 
 [env.production.vars]
 GRAPH_JSON_COLLECTION = "jsonhero-prod"
+SESSION_SECRET = "abc1234"
 
 # Secrets
 # [SESSION_STORAGE]

@@ -1,19 +1,18 @@
 type = "javascript"
 compatibility_date = "2022-02-01"
 
-account_id = "c974caaaa18255c03f1771097bade662"
+account_id = "adad29e4f868768636890dc93d28e0e3"
 workers_dev = true
-
-kv_namespaces = [ 
-  { binding = "DOCUMENTS", id = "a90ce96eb26c4989a1232db27e864ed6" }
+kv_namespaces = [
+  { binding = "DOCUMENTS", id = "b2c86cc4996d4e17b06b2cf1c2b1cdef", preview_id = "2efcfabda70c4c9eb5ec26ec3e60cae4" }
 ]
 
 [vars]
 GRAPH_JSON_COLLECTION = "jsonhero-dev"
-
+SESSION_SECRET = "abc1234"
 [site]
 bucket = "./public"
-entry-point = "."
+entry-point = "./dist/worker.js"
 
 [build]
 command = "npm run build:worker"
@@ -29,7 +28,6 @@ kv_namespaces = [
 
 [env.production.vars]
 GRAPH_JSON_COLLECTION = "jsonhero-prod"
-
 # Secrets
 # [SESSION_STORAGE]
 # [GRAPH_JSON_API_KEY]

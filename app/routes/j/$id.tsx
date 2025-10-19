@@ -202,14 +202,15 @@ export default function JsonDocumentRoute() {
                 <div>
                   <div className="block md:hidden fixed bg-black/80 h-screen w-screen z-50 text-white">
                     <div className="flex flex-col items-center justify-center h-full text-center">
-                      <LargeTitle>JSON Hero only works on desktop</LargeTitle>
-                      <LargeTitle>👇</LargeTitle>
-                      <Body>(For now!)</Body>
+                      {/*<LargeTitle>JSON Hero only works on desktop</LargeTitle>*/}
+                      <LargeTitle>JSON Hero 仅适用于桌面</LargeTitle>
+                      {/*<LargeTitle>👇</LargeTitle>*/}
+                      {/*<Body>(For now!)</Body>*/}
                       <a
                         href="/"
                         className="mt-8 text-white bg-lime-500 rounded-sm px-4 py-2"
                       >
-                        Back to Home
+                        首页
                       </a>
                     </div>
                   </div>
