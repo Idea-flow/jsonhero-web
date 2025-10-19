@@ -5,6 +5,6 @@ export const ExtraLargeTitle: FunctionComponent<{ className?: string }> = ({
   children,
 }) => {
   return (
-    <h1 className={`font-sans font-bold text-6xl ${className}`}>{children}</h1>
+    <h1 className={`font-sans font-bold text-5xl md:text-6xl ${className}`}>{children}</h1>
   );
 };

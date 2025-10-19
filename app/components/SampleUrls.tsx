@@ -2,25 +2,9 @@ import { ExampleDoc } from "./ExampleDoc";
 
 export function SampleUrls() {
   return (
-    <div className="flex justify-start flex-wrap gap-2">
-      {/*<ExampleDoc*/}
-      {/*  id="d9udW60cLOok"*/}
-      {/*  title="Tweet JSON"*/}
-      {/*  path="data.0.entities.urls.0.expanded_url"*/}
-      {/*/>*/}
-      {/*<ExampleDoc id="PjHo1o5MVeH4" title="Github API" />*/}
-      <ExampleDoc id="tbADoVC3sYsI" title="来个示例" />
-      <ExampleDoc id="0b8TGrI6O2HR" title="来个示例2" />
-      {/*<ExampleDoc*/}
-      {/*  id="XKqIsPgCssUN"*/}
-      {/*  title="Airtable API"*/}
-      {/*  path="records.3.createdTime"*/}
-      {/*/>*/}
-      {/*<ExampleDoc*/}
-      {/*  id="bSc7r1Ta0fED"*/}
-      {/*  title="Unsplash API"*/}
-      {/*  path="4.urls.regular"*/}
-      {/*/>*/}
+    <div className="flex justify-center flex-wrap gap-3">
+      <ExampleDoc id="tbADoVC3sYsI" title="示例 1" />
+      <ExampleDoc id="0b8TGrI6O2HR" title="示例 2" />
     </div>
   );
 }

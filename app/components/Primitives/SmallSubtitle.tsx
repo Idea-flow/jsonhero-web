@@ -5,6 +5,6 @@ export const SmallSubtitle: FunctionComponent<{ className?: string }> = ({
   children,
 }) => {
   return (
-    <h3 className={`font-sans text-xl text-slate-300 ${className}`}>{children}</h3>
+    <h3 className={`font-sans text-lg md:text-xl mt-4 ${className}`}>{children}</h3>
   );
 };

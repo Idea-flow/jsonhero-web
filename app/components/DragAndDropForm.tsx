@@ -68,24 +68,41 @@ export function DragAndDropForm() {
     <Form method="post" action="/actions/createFromFile" ref={formRef}>
       <div
         {...getRootProps()}
-        className={`block min-w-[300px] cursor-pointer rounded-md border-2 border-dashed p-4 text-base focus:border-indigo-500 focus:ring-indigo-500 ${
-          theme === "dark"
-            ? "border-slate-600 bg-slate-900/40 text-slate-300"
-            : "border-slate-300 bg-slate-100 text-slate-700"
+        className={`block w-full min-w-[300px] cursor-pointer rounded-xl border-2 border-dashed p-6 text-base transition-all duration-300 hover:scale-[1.02] ${
+          isDragActive 
+            ? theme === "dark"
+              ? "border-green-500 bg-green-900/10 text-green-400" 
+              : "border-green-500 bg-green-100 text-green-700"
+            : theme === "dark"
+              ? "border-gray-700 bg-gray-800/50 text-gray-300 hover:border-gray-500"
+              : "border-gray-300 bg-white/80 text-gray-700 hover:border-gray-400"
         }`}
       >
         <input {...getInputProps()} />
-        <div className="flex items-center">
+        <div className="flex flex-col items-center justify-center space-y-3">
           <ArrowCircleDownIcon
-            className={`mr-3 inline h-6 w-6 ${
-              isDragActive ? "text-lime-500" : ""
+            className={`h-10 w-10 ${
+              isDragActive 
+                ? theme === "dark" ? "text-green-500" : "text-green-600"
+                : theme === "dark" ? "text-gray-500" : "text-gray-400"
             }`}
           />
-          <p className={`${isDragActive ? "text-lime-500" : ""}`}>
-            {isDragActive
-              ? "Now drop to open it…"
-              : "拖动JSON文件到此，或者点击此处选择"}
-          </p>
+          <div className="text-center">
+            <p className={`font-medium ${
+              isDragActive 
+                ? theme === "dark" ? "text-green-400" : "text-green-700"
+                : ""
+            }`}>
+              {isDragActive
+                ? "松开鼠标上传文件"
+                : "拖动JSON文件到此，或者点击选择文件"}
+            </p>
+            <p className={`text-xs mt-1 ${
+              theme === "dark" ? "text-gray-500" : "text-gray-400"
+            }`}>
+              支持 JSON 文件，最大 1MB
+            </p>
+          </div>
         </div>
 
         <input type="hidden" name="filename" ref={filenameInputRef} />
