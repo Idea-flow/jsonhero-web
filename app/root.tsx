@@ -40,6 +40,7 @@ export const meta: MetaFunction = ({ location }) => {
   };
 };
 
+import mainStyles from "./../styles/main.css";
 import styles from "./tailwind.css";
 import { getThemeSession } from "./theme.server";
 import { getStarCount } from "./services/github.server";
@@ -47,7 +48,10 @@ import { StarCountProvider } from "./components/StarCountProvider";
 import { PreferencesProvider } from "~/components/PreferencesProvider";
 
 export function links() {
-  return [{ rel: "stylesheet", href: styles }];
+  return [
+    { rel: "stylesheet", href: styles },
+    { rel: "stylesheet", href: mainStyles }
+  ];
 }
 
 export type LoaderData = {

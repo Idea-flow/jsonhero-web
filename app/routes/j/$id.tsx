@@ -271,7 +271,7 @@ export function CatchBoundary() {
           <SmallSubtitle className="text-slate-200 mb-8">
             {error.data || (
               error.status === 404
-                ? <>We couldn't find the page <b>'https://jsonhero.io/j/{params.id}'</b></>
+                ? <>We couldn't find the page <b>'https://jsonh.ideaflow.top/j/{params.id}'</b></>
                 : "Unknown error occurred."
             )}
           </SmallSubtitle>

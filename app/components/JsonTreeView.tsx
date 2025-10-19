@@ -144,10 +144,10 @@ function TreeViewNode({
       <div
         className={`h-full flex pl-5 rounded-sm select-none ${
           isSelected
-            ? "bg-indigo-700"
+            ? "bg-gradient-to-r from-cyan-50 to-emerald-50 dark:from-slate-700 dark:to-slate-700 border-l-4 border-cyan-300 dark:border-emerald-400"
             : virtualItem.index % 2
-            ? "dark:bg-slate-900"
-            : "bg-slate-100 bg-opacity-90 dark:bg-slate-800 dark:bg-opacity-30"
+            ? "bg-slate-50 dark:bg-slate-800/50"
+            : "bg-white dark:bg-slate-900/50"
         }`}
       >
         <div className={`pl-2 w-2/6 items-center flex`}>
@@ -164,16 +164,16 @@ function TreeViewNode({
                 <ChevronRightIcon
                   className={`w-4 h-4 mr-1 -ml-5  ${
                     isSelected
-                      ? "text-slate-100"
-                      : "text-slate-600 dark:text-slate-100"
+                      ? "text-cyan-600 dark:text-emerald-300"
+                      : "text-slate-400 dark:text-slate-400"
                   }`}
                 />
               ) : (
                 <ChevronDownIcon
                   className={`w-4 h-4 mr-1 -ml-5 ${
                     isSelected
-                      ? "text-slate-100"
-                      : "text-slate-600 dark:text-slate-100"
+                      ? "text-cyan-600 dark:text-emerald-300"
+                      : "text-slate-400 dark:text-slate-400"
                   }`}
                 />
               )}
@@ -183,8 +183,8 @@ function TreeViewNode({
           <Body
             className={`${indentClassName} leading-8 truncate whitespace-nowrap pl-2 pr-2 ${
               isSelected
-                ? "text-slate-100"
-                : "text-slate-700 dark:text-slate-200"
+                ? "text-cyan-700 dark:text-emerald-100 font-medium"
+                : "text-slate-700 dark:text-slate-300"
             }`}
           >
             {node.longTitle ?? node.name}
@@ -197,7 +197,7 @@ function TreeViewNode({
               <node.icon
                 className={`h-5 w-5 ${
                   isSelected
-                    ? "text-slate-100"
+                    ? "text-cyan-600 dark:text-emerald-300"
                     : "text-slate-400 dark:text-slate-500"
                 }`}
               />
@@ -207,8 +207,8 @@ function TreeViewNode({
             <Mono
               className={`truncate pr-1 transition ${
                 isSelected
-                  ? "text-slate-100"
-                  : "text-slate-500 dark:text-slate-200"
+                  ? "text-cyan-600 dark:text-emerald-200"
+                  : "text-slate-500 dark:text-slate-400"
               }`}
             >
               {node.subtitle}
@@ -223,28 +223,28 @@ function TreeViewNode({
 function computeTreeNodePaddingClass(depth: number) {
   switch (depth) {
     case 0:
-      return "ml-[4px] border-l border-slate-400/70";
+      return "ml-[4px] border-l border-slate-300/70 dark:border-slate-600/70";
     case 1:
-      return "ml-[calc(12px_+_4px)] border-l border-pink-400/70";
+      return "ml-[calc(12px_+_4px)] border-l border-cyan-200/70 dark:border-cyan-600/30";
     case 2:
-      return "ml-[calc(12px_*_2_+_4px)] border-l border-blue-400/70";
+      return "ml-[calc(12px_*_2_+_4px)] border-l border-emerald-200/70 dark:border-emerald-600/30";
     case 3:
-      return "ml-[calc(12px_*_3_+_4px)] border-l border-orange-400/70";
+      return "ml-[calc(12px_*_3_+_4px)] border-l border-amber-200/70 dark:border-amber-600/30";
     case 4:
-      return "ml-[calc(12px_*_4_+_4px)] border-l border-emerald-400/70";
+      return "ml-[calc(12px_*_4_+_4px)] border-l border-violet-200/70 dark:border-violet-600/30";
     case 5:
-      return "ml-[calc(12px_*_5_+_4px)] border-l border-pink-400/70";
+      return "ml-[calc(12px_*_5_+_4px)] border-l border-rose-200/70 dark:border-rose-600/30";
     case 6:
-      return "ml-[calc(12px_*_6_+_4px)] border-l border-blue-400/70";
+      return "ml-[calc(12px_*_6_+_4px)] border-l border-cyan-200/70 dark:border-cyan-600/30";
     case 7:
-      return "ml-[calc(12px_*_7_+_4px)] border-l border-orange-400/70";
+      return "ml-[calc(12px_*_7_+_4px)] border-l border-emerald-200/70 dark:border-emerald-600/30";
     case 8:
-      return "ml-[calc(12px_*_8_+_4px)] border-l border-emerald-400/70";
+      return "ml-[calc(12px_*_8_+_4px)] border-l border-amber-200/70 dark:border-amber-600/30";
     case 9:
-      return "ml-[calc(12px_*_9_+_4px)] border-l border-pink-400/70";
+      return "ml-[calc(12px_*_9_+_4px)] border-l border-violet-200/70 dark:border-violet-600/30";
     case 10:
-      return "ml-[calc(12px_*_10_+_4px)] border-l border-orange-400/70";
+      return "ml-[calc(12px_*_10_+_4px)] border-l border-rose-200/70 dark:border-rose-600/30";
     default:
-      return "ml-[calc(12px_*_11_+_4px)] border-l border-slate-400/70";
+      return "ml-[calc(12px_*_11_+_4px)] border-l border-slate-300/70 dark:border-slate-600/70";
   }
 }

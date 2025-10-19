@@ -1,0 +1,13 @@
+
+
+
+body {
+    font-family: blog-font, sans-serif;
+}
+
+/*    字体相关*/
+/* 加载一个本地字体 */
+@font-face{
+    font-family: blog-font;
+    src: url("./font/font.woff2");
+}

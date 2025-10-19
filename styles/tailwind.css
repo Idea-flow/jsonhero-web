@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700;900&family=Roboto+Mono&display=swap");
+/*@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700;900&family=Roboto+Mono&display=swap");*/
 
 @tailwind base;
 @tailwind components;
@@ -21,15 +21,27 @@
 
 /* Custom Scrollbar Styles */
 .custom-scrollbar::-webkit-scrollbar {
-  width: 0.75rem;
+  width: 0.5rem;
+  border-radius: 0.25rem;
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
   background: transparent;
+  border-radius: 0.25rem;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #334155;
-  border-radius: 0.5rem;
-  border: 2px solid #0f172a;
+  background: #94a3b8;
+  border-radius: 0.25rem;
+  border: none;
+  transition: background 0.3s ease;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #94a3b8 transparent;
 }

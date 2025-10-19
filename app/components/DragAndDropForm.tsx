@@ -3,11 +3,13 @@ import { useCallback, useRef } from "react";
 import { useDropzone } from "react-dropzone";
 import { Form, useSubmit } from "remix";
 import invariant from "tiny-invariant";
+import { useTheme } from "~/components/ThemeProvider";
 
 export function DragAndDropForm() {
   const formRef = useRef<HTMLFormElement>(null);
   const filenameInputRef = useRef<HTMLInputElement>(null);
   const rawJsonInputRef = useRef<HTMLInputElement>(null);
+  const [theme] = useTheme();
 
   const submit = useSubmit();
 
@@ -66,7 +68,11 @@ export function DragAndDropForm() {
     <Form method="post" action="/actions/createFromFile" ref={formRef}>
       <div
         {...getRootProps()}
-        className="block min-w-[300px] cursor-pointer rounded-md border-2 border-dashed border-slate-600 bg-slate-900/40 p-4 text-base text-slate-300 focus:border-indigo-500 focus:ring-indigo-500"
+        className={`block min-w-[300px] cursor-pointer rounded-md border-2 border-dashed p-4 text-base focus:border-indigo-500 focus:ring-indigo-500 ${
+          theme === "dark"
+            ? "border-slate-600 bg-slate-900/40 text-slate-300"
+            : "border-slate-300 bg-slate-100 text-slate-700"
+        }`}
       >
         <input {...getInputProps()} />
         <div className="flex items-center">
