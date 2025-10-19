@@ -42,6 +42,8 @@ wrangler deploy
 
 wrangler dev
 
+wrangler dev --port 3000
+
 
 npm run deploy:production # 这个是可以的
 

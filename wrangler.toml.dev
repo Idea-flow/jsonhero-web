@@ -9,7 +9,6 @@ kv_namespaces = [
 
 [vars]
 GRAPH_JSON_COLLECTION = "jsonhero-dev"
-SESSION_SECRET = "abc1234"
 [site]
 bucket = "./public"
 entry-point = "./dist/worker.js"

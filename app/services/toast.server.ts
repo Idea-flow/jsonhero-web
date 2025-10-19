@@ -16,7 +16,7 @@ export const { commitSession, getSession } = createCookieSessionStorage({
     httpOnly: true,
     sameSite: "lax",
     maxAge: ONE_YEAR,
-    secrets: [SESSION_SECRET || "default_session_secret_for_development"],
+    secrets: [SESSION_SECRET],
     secure: true,
   },
 });

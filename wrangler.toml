@@ -5,12 +5,12 @@ account_id = "adad29e4f868768636890dc93d28e0e3"
 workers_dev = true
 
 kv_namespaces = [ 
-  { binding = "DOCUMENTS", id = "0ce764a472ae472bb8d2961b6d485dd5", preview_id = "0ce764a472ae472bb8d2961b6d485dd5" }
+  { binding = "DOCUMENTS", id = "0ce764a472ae472bb8d2961b6d485dd5" }
 ]
 
 [vars]
 GRAPH_JSON_COLLECTION = "jsonhero-dev"
-SESSION_SECRET = "abc123"
+
 
 [site]
 bucket = "./public"
