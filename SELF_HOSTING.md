@@ -62,3 +62,10 @@ Enter a secret value: *******
 
 
 ```
+
+
+npm run clean
+
+npm run dev
+
+npm start
