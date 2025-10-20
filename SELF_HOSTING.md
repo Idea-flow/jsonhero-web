@@ -66,6 +66,6 @@ Enter a secret value: *******
 
 npm run clean
 
-npm run dev
+npm run build
 
 npm start

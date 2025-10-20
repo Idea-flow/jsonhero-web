@@ -43,6 +43,8 @@ export const loader: LoaderFunction = async ({ params, request }) => {
 
   const doc = await getDocument(params.id);
 
+  console.log("doc:",doc)
+
   if (!doc) {
     throw new Response("Not Found", {
       status: 404,
@@ -177,6 +179,9 @@ export const meta: MetaFunction = ({
 
 export default function JsonDocumentRoute() {
   const loaderData = useLoaderData<LoaderData>();
+  
+  console.log("loaderData:", loaderData);
+  console.log("loaderData---json:", JSON.stringify(loaderData));
 
   // Redirect back to `/j/${slug}` if the path is set, that way refreshing the page doesn't go to the path in the url.
   const location = useLocation();
