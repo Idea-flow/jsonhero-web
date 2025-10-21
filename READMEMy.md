@@ -26,8 +26,12 @@ docker push ideaflow1/jsonherom:1.0.0
 ```
 
 
+# 多架构部署,并直接push
 
-docker buildx build --platform linux/amd64,linux/arm64 -t ideaflow1/novel-download:1.0.7  --push .
+docker buildx build --platform linux/amd64,linux/arm64 -t ideaflow1/jsonherol:1.0.1  --push .
 
 
+
+
+之前的
 docker buildx build --platform linux/amd64,linux/arm64 -t ideaflow1/novel-download:latest  --push .
