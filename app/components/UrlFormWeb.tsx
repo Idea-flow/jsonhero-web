@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useImperativeHandle, forwardRef, useEffect } from "react";
 import { useTheme } from "~/components/ThemeProvider";
 
 interface UrlFormWebProps {
@@ -6,15 +6,30 @@ interface UrlFormWebProps {
   autoFocus?: boolean;
 }
 
-export function UrlFormWeb({
+export interface UrlFormWebRef {
+  submit: () => void;
+}
+
+export const UrlFormWeb = forwardRef<UrlFormWebRef, UrlFormWebProps>(({
   defaultValue,
   autoFocus
-}: UrlFormWebProps) {
+}, ref) => {
   const [theme] = useTheme();
   const inputRef = useRef<HTMLInputElement>(null);
+  const formRef = useRef<HTMLFormElement>(null);
 
-  const handleJsonSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  // 当 defaultValue 更新时，更新 input 的值
+  useEffect(() => {
+    if (defaultValue && inputRef.current) {
+      inputRef.current.value = defaultValue;
+    }
+  }, [defaultValue]);
+
+  const handleJsonSubmit = (e?: React.FormEvent) => {
+    if (e) {
+      e.preventDefault();
+    }
+    
     const jsonValue = inputRef.current?.value;
     if (jsonValue) {
       try {
@@ -30,8 +45,13 @@ export function UrlFormWeb({
     }
   };
 
+  // 暴露给父组件的方法
+  useImperativeHandle(ref, () => ({
+    submit: () => handleJsonSubmit()
+  }));
+
   return (
-    <form onSubmit={handleJsonSubmit} className="relative overflow-hidden rounded-xl">
+    <form ref={formRef} onSubmit={handleJsonSubmit} className="relative overflow-hidden rounded-xl">
       {/* 弥散光背景装饰 */}
       <div className={`absolute -top-20 -left-20 w-64 h-64 rounded-full blur-3xl opacity-30 ${
         theme === "dark"
@@ -74,4 +94,4 @@ export function UrlFormWeb({
       </div>
     </form>
   );
-}
+});

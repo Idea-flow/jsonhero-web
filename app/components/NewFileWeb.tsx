@@ -1,16 +1,15 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { DragAndDropFormWeb } from "./DragAndDropFormWeb";
 import { useTheme } from "~/components/ThemeProvider";
-import { UrlFormWeb } from "./UrlFormWeb";
+import { UrlFormWeb } from "~/components/UrlFormWeb";
+
 export function NewFileWeb() {
-  const [showExample, setShowExample] = useState(false);
   const [theme] = useTheme();
+  const [exampleJson, setExampleJson] = useState<string | null>(null);
+  const formRef = useRef<{ submit: () => void }>(null);
 
   const handleTryExample = () => {
-    setShowExample(true);
-  };
-
-  const exampleJson = `{
+    const json = `{
   "title": "ideaflow在线工具站",
   "json.url": "https://tools.ideaflow.top",
   "keywords": "json在线解析",
@@ -41,11 +40,25 @@ export function NewFileWeb() {
   },
   "audio": "https://assets.ctfassets.net/bs8ntwkklfua/2NBIVPDF4o7cy0epTvPOwR/406cd5c17e9b01511f1e350bb96df352/Hall_Pass_Wow_3.mp3"
 }`;
+    setExampleJson(json);
+  };
+
+  useEffect(() => {
+    if (exampleJson && formRef.current) {
+      // 稍微延迟执行，确保组件已经渲染完成
+      setTimeout(() => {
+        formRef.current?.submit();
+      }, 0);
+    }
+  }, [exampleJson]);
 
   return (
     <div className="w-full max-w-2xl mx-auto">
       <div className="mb-6">
-        <UrlFormWeb />
+        <UrlFormWeb 
+          ref={formRef}
+          defaultValue={exampleJson || undefined}
+        />
       </div>
       
       <div className="relative my-6">
@@ -66,22 +79,14 @@ export function NewFileWeb() {
       <div className="text-center">
         <button
           onClick={handleTryExample}
-          className={`inline-flex items-center justify-center px-4 py-2 font-medium rounded-full transition-all duration-200 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 ${
+          className={`inline-flex items-center justify-center px-6 py-3 font-medium rounded-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 ${
             theme === "dark"
-              ? "bg-white/10 hover:bg-white/20 text-white border border-white/20 focus:ring-white/30 focus:ring-offset-0 backdrop-blur-sm"
-              : "bg-gray-100 hover:bg-gray-200 text-gray-800 border border-gray-300 focus:ring-gray-400 focus:ring-offset-0 backdrop-blur-sm"
+              ? "text-white bg-gradient-to-r from-purple-900/40 to-indigo-900/40 hover:from-purple-800/60 hover:to-indigo-800/60 border border-white/20 focus:ring-indigo-500/50 focus:ring-offset-0 backdrop-blur-sm shadow-lg"
+              : "text-gray-800 bg-gradient-to-r from-pink-100 to-purple-100 hover:from-pink-200 hover:to-purple-200 border border-white/50 focus:ring-indigo-300/50 focus:ring-offset-0 backdrop-blur-sm shadow-md"
           }`}
         >
-          示例
+          <span>试用示例</span>
         </button>
-        {showExample && (
-          <div className="mt-4">
-            <UrlFormWeb 
-              defaultValue={exampleJson}
-              autoFocus
-            />
-          </div>
-        )}
       </div>
     </div>
   );

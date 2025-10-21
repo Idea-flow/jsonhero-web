@@ -41,9 +41,9 @@ let browserJson = null;
 if (typeof window !== "undefined") {
   try {
     const storedJson = localStorage.getItem("browserJson");
-    console.log("m页面storedJson", storedJson)
     if (storedJson) {
       browserJson = JSON.parse(storedJson);
+      console.log("m页面browserJson", browserJson)
     }
   } catch (e) {
     console.error("Failed to parse browserJson from localStorage", e);
