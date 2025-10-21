@@ -9,8 +9,8 @@ export function NewFileWeb() {
   const formRef = useRef<{ submit: () => void }>(null);
 
   const handleTryExample = () => {
-    const json = `{
-  "title": "ideaflow在线工具站",
+    const json = {
+  "title": "ideaflow在线工具站123",
   "json.url": "https://tools.ideaflow.top",
   "keywords": "json在线解析",
   "功能": [
@@ -39,8 +39,8 @@ export function NewFileWeb() {
     "360p": "https://videos.ctfassets.net/bs8ntwkklfua/7mSGl1rSVtGdfSacwnKVsu/e7ac36e5684f6b64978987d2f68c43db/Hall_Pass_Wow_3_360p.mp4"
   },
   "audio": "https://assets.ctfassets.net/bs8ntwkklfua/2NBIVPDF4o7cy0epTvPOwR/406cd5c17e9b01511f1e350bb96df352/Hall_Pass_Wow_3.mp3"
-}`;
-    setExampleJson(json);
+};
+    setExampleJson(JSON.stringify(json, null, 2));
   };
 
   useEffect(() => {
@@ -85,7 +85,7 @@ export function NewFileWeb() {
               : "text-gray-800 bg-gradient-to-r from-pink-100 to-purple-100 hover:from-pink-200 hover:to-purple-200 border border-white/50 focus:ring-indigo-300/50 focus:ring-offset-0 backdrop-blur-sm shadow-md"
           }`}
         >
-          <span>试用示例</span>
+          <span>示例</span>
         </button>
       </div>
     </div>

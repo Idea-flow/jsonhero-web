@@ -37,7 +37,7 @@ export const meta: MetaFunction = () => {
 // };
 
 // 从 localStorage 获取 browserJson 或使用默认数据
-let browserJson = null;
+let browserJson = {};
 if (typeof window !== "undefined") {
   try {
     const storedJson = localStorage.getItem("browserJson");
@@ -111,7 +111,7 @@ export default function JsonDocumentRoute() {
       key={doc.id}
       minimal={undefined}
     >
-      <JsonProvider initialJson={json}>
+      <JsonProvider initialJson={browserJson}>
         <JsonSchemaProvider>
           <JsonColumnViewProvider>
             <JsonSearchProvider>
@@ -135,9 +135,6 @@ export default function JsonDocumentRoute() {
                         {/*<SideBar />*/}
                         <SideBarMy />
                         <JsonView>
-                          {/*<JsonColumnView />*/}
-                          {/*<JsonTreeView />*/}
-                          {/*<JsonEditor />*/}
                           <Outlet />
 
                         </JsonView>

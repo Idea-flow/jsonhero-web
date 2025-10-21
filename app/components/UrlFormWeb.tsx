@@ -64,7 +64,7 @@ export const UrlFormWeb = forwardRef<UrlFormWebRef, UrlFormWebProps>(({
           : "bg-gradient-to-br from-blue-200 to-cyan-200"
       }`}></div>
 
-      <div className="relative rounded-lg overflow-hidden transition-all duration-300 focus-within:ring-2 focus-within:ring-indigo-300 focus-within:ring-opacity-50 dark:focus-within:ring-indigo-500/50">
+      <div className="relative rounded-lg overflow-hidden transition-all duration-300">
         <div className="flex">
           <input
             ref={inputRef}
@@ -73,8 +73,8 @@ export const UrlFormWeb = forwardRef<UrlFormWebRef, UrlFormWebProps>(({
             autoFocus={autoFocus}
             className={`flex-grow text-base py-3 px-4 transition duration-300 focus:outline-none ${
               theme === "dark"
-                ? "text-white placeholder:text-gray-300 bg-white/5 border border-white/10 backdrop-blur-xl"
-                : "text-gray-800 placeholder:text-gray-400 bg-white/80 border border-white/30 backdrop-blur-xl"
+                ? "text-white placeholder:text-gray-300 bg-white/5 border border-white/10 backdrop-blur-xl focus:border-pink-400 focus:ring-2 focus:ring-pink-400/30"
+                : "text-gray-800 placeholder:text-gray-400 bg-white/80 border border-white/30 backdrop-blur-xl focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20"
             }`}
             placeholder="在此处粘贴 JSON URL..."
           />
