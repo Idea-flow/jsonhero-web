@@ -121,7 +121,7 @@ export default function JsonDocumentRoute() {
                     <div className="flex flex-col items-center justify-center h-full text-center">
                       <LargeTitle>JSON Hero 仅适用于桌面</LargeTitle>
                       <a
-                        href="/public"
+                        href="/web"
                         className="mt-8 text-white bg-lime-500 rounded-sm px-4 py-2"
                       >
                         首页

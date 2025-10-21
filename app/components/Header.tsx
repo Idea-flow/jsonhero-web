@@ -15,6 +15,7 @@ import {
 import { Form } from "remix";
 import { useJsonDoc } from "~/hooks/useJsonDoc";
 import { LogoTriggerdotdev } from "./Icons/LogoTriggerdotdev";
+import {NewFileWeb} from "~/components/NewFileWeb";
 
 export function Header() {
   const { doc } = useJsonDoc();
@@ -45,6 +46,7 @@ export function Header() {
             </PopoverTrigger>
             <PopoverContent side="bottom" sideOffset={8}>
               <NewDocument/>
+              {/*  <NewFileWeb />*/}
               <PopoverArrow
                   className="fill-current text-indigo-700"
                   offset={20}

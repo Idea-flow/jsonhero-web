@@ -1,7 +1,7 @@
-import { DragAndDropForm } from "./DragAndDropForm";
+import { DragAndDropFormWeb } from "./DragAndDropFormWeb";
 import { Title } from "./Primitives/Title";
 import { SampleUrls } from "./SampleUrls";
-import { UrlForm } from "./UrlForm";
+import { UrlFormWeb } from "./UrlFormWeb";
 import { useTheme } from "./ThemeProvider";
 import {useState} from "react";
 
@@ -20,8 +20,20 @@ export function NewDocument() {
         : "bg-white/90 backdrop-blur-sm text-gray-800 border-gray-200"
     }`}>
       <div className="flex flex-col">
-        <UrlForm className="mb-4"/>
-        <DragAndDropForm/>
+        <UrlFormWeb/>
+        <div className="relative my-6">
+          <div className="absolute inset-0 flex items-center">
+            <div className={`w-full border-t ${theme === "dark" ? "border-gray-700" : "border-gray-200"}`}></div>
+          </div>
+          <div className="relative flex justify-center">
+          <span
+              className={`px-4 text-sm ${theme === "dark" ? "bg-gray-900 text-gray-400" : "bg-gradient-to-br from-blue-50 to-cyan-50 text-gray-500"}`}>
+            或者
+          </span>
+          </div>
+        </div>
+
+        <DragAndDropFormWeb/>
         <div className="text-center mt-6">
           <button
               onClick={handleTryExample}
@@ -35,7 +47,7 @@ export function NewDocument() {
           </button>
           {showExample && (
               <div className="mt-4">
-                <UrlForm
+                <UrlFormWeb
                     defaultValue={`{
   "title": "ideaflow在线工具站",
   "json.url": "https://tools.ideaflow.top",
@@ -68,7 +80,6 @@ export function NewDocument() {
   "audio": "https://assets.ctfassets.net/bs8ntwkklfua/2NBIVPDF4o7cy0epTvPOwR/406cd5c17e9b01511f1e350bb96df352/Hall_Pass_Wow_3.mp3"
 }
 `}
-                    autoSubmit={true}
                 />
               </div>
           )}
