@@ -4,7 +4,7 @@ on:
   push:
     branches: [main-my]
     paths:
-      - ".github/workflows/main.yml"
+      - ".github/workflows/main-my.yml"
       - "app/**/*.ts"
       - "app/**/*.tsx"
       - "public/*"
