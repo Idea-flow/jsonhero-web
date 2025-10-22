@@ -28,14 +28,6 @@ export const meta: MetaFunction = () => {
   };
 };
 
-// const doc = {
-//   "id": "J8WPwiK7dGZ2",
-//   "type": "raw",
-//   "contents": "{\"unlockEcpm\":\"15.98\",\"pkName\":\"com.dz.hmjc\",\"os\":\"A\",\"ip\":\"183.3.182.134\",\"regDate\":\"1700402757000\",\"eventType\":\"1\",\"baseDotVo\":\"{\\\"uid\\\":\\\"3020179\\\",\\\"province\\\":\\\"广东省\\\",\\\"city\\\":\\\"江门市\\\",\\\"ip\\\":\\\"183.3.182.134\\\",\\\"sex\\\":0,\\\"imei\\\":\\\"|da4e453c462e21a3aa7d78a213343b5030d29fd3be663871814beff2fdc07e76\\\",\\\"pkna\\\":\\\"com.dz.hmjc\\\",\\\"model\\\":\\\"V2196A\\\",\\\"brand\\\":\\\"vivo\\\",\\\"chid\\\":\\\"HMTFGQBJXSJ1000082\\\",\\\"oaid\\\":\\\"|da4e453c462e21a3aa7d78a213343b5030d29fd3be663871814beff2fdc07e76\\\"}\",\"userId\":\"3020179\",\"nowChTime\":\"1760686022656\",\"convtime\":1760685383598,\"domain\":30,\"unlockType\":\"ad\",\"imei\":\"|da4e453c462e21a3aa7d78a213343b5030d29fd3be663871814beff2fdc07e76\",\"stayDays\":113,\"model\":\"v2196a\",\"brand\":\"vivo\",\"channelCode\":\"KSROI001\"}",
-//   "title": "Untitled",
-//   "readOnly": false
-// };
-
 // 从 localStorage 获取 browserJson 或使用默认数据
 let browserJson = {};
 if (typeof window !== "undefined") {
@@ -59,6 +51,37 @@ const doc = {
 };
 
 const json = browserJson || [
+  {
+    "title": "ideaflow在线工具站123",
+    "json.url": "https://tools.ideaflow.top",
+    "keywords": "json在线解析",
+    "功能": [
+      "JSON美化",
+      "JSON数据类型显示",
+      "JSON数组显示角标",
+      "高亮显示",
+      "错误提示",
+      {
+        "备注": [
+          "tools.ideaflow.top",
+          "tools.ideaflow.top2"
+        ]
+      }
+    ],
+    "color": "#0fd59d",
+    "date": "2014-01-01",
+    "unixtime": "1729736646666",
+    "current_wow_in_movie": 3,
+    "total_wows_in_movie": 6,
+    "poster": "https://images.ctfassets.net/bs8ntwkklfua/6jFEUPmYiKifaTuC2cugm8/22087834d091445fc9393cdd9163a901/Hall_Pass_Poster.jpg",
+    "video": {
+      "1080p": "https://videos.ctfassets.net/bs8ntwkklfua/4QcL02MHJ8ApVkbfN8cP6E/264c28c1e9195d87f0206e143c5ca54a/Hall_Pass_Wow_3_1080p.mp4",
+      "720p": "https://videos.ctfassets.net/bs8ntwkklfua/15h0sMoIhdeaPDB8qSsUN9/36245f66352b595dc40bc4d9903fa5b3/Hall_Pass_Wow_3_720p.mp4",
+      "480p": "https://videos.ctfassets.net/bs8ntwkklfua/74fQiVcwuT7ePQemGC7ih4/b102922c97c9ff38f47268d648628a22/Hall_Pass_Wow_3_480p.mp4",
+      "360p": "https://videos.ctfassets.net/bs8ntwkklfua/7mSGl1rSVtGdfSacwnKVsu/e7ac36e5684f6b64978987d2f68c43db/Hall_Pass_Wow_3_360p.mp4"
+    },
+    "audio": "https://assets.ctfassets.net/bs8ntwkklfua/2NBIVPDF4o7cy0epTvPOwR/406cd5c17e9b01511f1e350bb96df352/Hall_Pass_Wow_3.mp3"
+  },
       {
         "movie": "Cars 3",
         "year": 2017,
@@ -78,27 +101,6 @@ const json = browserJson || [
           "360p": "https://videos.ctfassets.net/bs8ntwkklfua/KL91bYDqfWVeK6NdaXh1O/f1baca7b2988a2e5853256be5f9e2c89/Cars_3_Wow_3_360p.mp4"
         },
         "audio": "https://assets.ctfassets.net/bs8ntwkklfua/6PlYbs7cO3iXEEM1szcfHZ/bf10fba861c8e0d2c20ac4714974bde1/Cars_3_Wow_3.mp3"
-      },
-
-      {
-        "movie": "The Big Year",
-        "year": 2011,
-        "release_date": "2011-10-14",
-        "director": "David Frankel",
-        "character": "Kenny Bostick",
-        "movie_duration": "01:43:09",
-        "timestamp": "00:44:48",
-        "full_line": "Wow!",
-        "current_wow_in_movie": 1,
-        "total_wows_in_movie": 3,
-        "poster": "https://images.ctfassets.net/bs8ntwkklfua/pCjGOhbTCQVjLRN9zTwIi/ce7cdf4b40f3549326d881697aa468a1/The_Big_Year_Poster.jpg",
-        "video": {
-          "1080p": "https://videos.ctfassets.net/bs8ntwkklfua/2IZMW5Aeytz5rtu5MzcFk8/f675c3f6ef153c5df0c81679c80677d4/The_Big_Year_Wow_1_1080p.mp4",
-          "720p": "https://videos.ctfassets.net/bs8ntwkklfua/2K0XjRiHYd8zbdYcmiTMH4/b2e4a9b02db184a4d4bd71fe15ab37a9/The_Big_Year_Wow_1_720p.mp4",
-          "480p": "https://videos.ctfassets.net/bs8ntwkklfua/6QMkzBk6HrfuVxVT97mQg/5877904b163d7ccdc4baa92d449858d8/The_Big_Year_Wow_1_480p.mp4",
-          "360p": "https://videos.ctfassets.net/bs8ntwkklfua/5SFeCoTmyTUEJYtK0kOO92/462afffbd6315182db59271f99a5a829/The_Big_Year_Wow_1_360p.mp4"
-        },
-        "audio": "https://assets.ctfassets.net/bs8ntwkklfua/45tt9xH4Uf3Rgt0EJtykZZ/b5cef0c5d09d368359f4a9c0e66a6663/The_Big_Year_Wow_1.mp3"
       }
     ]
 ;
