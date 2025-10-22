@@ -2,9 +2,15 @@ import { ArrowCircleDownIcon } from "@heroicons/react/outline";
 import { useCallback, useRef } from "react";
 import { useDropzone } from "react-dropzone";
 import { useTheme } from "~/components/ThemeProvider";
+import { useNavigate } from "remix";
 
-export function DragAndDropFormWeb() {
+interface DragAndDropFormWebProps {
+  refreshOnSubmit?: boolean; // 新增参数，控制提交后是刷新页面还是跳转页面
+}
+
+export function DragAndDropFormWeb({ refreshOnSubmit = false }: DragAndDropFormWebProps) {
   const [theme] = useTheme();
+  const navigate = useNavigate();
 
   const onDrop = useCallback(
     (acceptedFiles: Array<File>) => {
@@ -45,15 +51,19 @@ export function DragAndDropFormWeb() {
           // 存储到 localStorage
           localStorage.setItem("browserJson", jsonValue);
 
-          // 跳转到 /m/m 页面
-          window.location.href = "/m/m/editor";
+          // 根据 refreshOnSubmit 参数决定是刷新页面还是跳转页面
+          if (refreshOnSubmit) {
+            window.location.reload();
+          } else {
+            navigate("/m/m");
+          }
         } catch (error) {
           alert("JSON 文件格式错误");
         }
       };
       reader.readAsText(firstFile);
     },
-    []
+    [refreshOnSubmit, navigate]
   );
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({

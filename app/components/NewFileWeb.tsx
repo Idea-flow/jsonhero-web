@@ -2,16 +2,17 @@ import { useState, useRef, useEffect } from "react";
 import { DragAndDropFormWeb } from "./DragAndDropFormWeb";
 import { useTheme } from "~/components/ThemeProvider";
 import { UrlFormWeb } from "~/components/UrlFormWeb";
-import { Link } from "remix";
+import { useNavigate } from "remix";
 
 export function NewFileWeb() {
   const [theme] = useTheme();
   const [exampleJson, setExampleJson] = useState<string | null>(null);
   const formRef = useRef<{ submit: () => void }>(null);
+  const navigate = useNavigate();
 
   const handleTryExample = () => {
     const json = {
-  "title": "ideaflow在线工具站",
+  "title": "ideaflow在线工具站123",
   "json.url": "https://tools.ideaflow.top",
   "keywords": "json在线解析",
   "功能": [
@@ -41,7 +42,9 @@ export function NewFileWeb() {
   },
   "audio": "https://assets.ctfassets.net/bs8ntwkklfua/2NBIVPDF4o7cy0epTvPOwR/406cd5c17e9b01511f1e350bb96df352/Hall_Pass_Wow_3.mp3"
 };
-    localStorage.setItem("browserJson", JSON.stringify(json, null, 2));
+    const jsonString = JSON.stringify(json, null, 2);
+    localStorage.setItem("browserJson", jsonString);
+    navigate("/m/m");
   };
 
   return (
@@ -50,6 +53,7 @@ export function NewFileWeb() {
         <UrlFormWeb 
           ref={formRef}
           defaultValue={exampleJson || undefined}
+          refreshOnSubmit={false} // 跳转页面而不是刷新页面
         />
       </div>
       
@@ -65,12 +69,11 @@ export function NewFileWeb() {
       </div>
 
       <div className="mb-6">
-        <DragAndDropFormWeb />
+        <DragAndDropFormWeb   refreshOnSubmit={false} />
       </div>
 
       <div className="text-center">
-        <Link 
-          to="/m/m"
+        <button
           onClick={handleTryExample}
           className={`inline-flex items-center justify-center px-6 py-3 font-medium rounded-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 ${
             theme === "dark"
@@ -79,7 +82,7 @@ export function NewFileWeb() {
           }`}
         >
           <span>示例</span>
-        </Link>
+        </button>
       </div>
     </div>
   );

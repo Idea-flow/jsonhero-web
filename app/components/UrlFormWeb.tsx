@@ -1,9 +1,12 @@
 import { useState, useRef, useImperativeHandle, forwardRef, useEffect } from "react";
 import { useTheme } from "~/components/ThemeProvider";
+import { Link, useNavigate } from "remix";
 
 interface UrlFormWebProps {
   defaultValue?: string;
   autoFocus?: boolean;
+  onJsonSubmit?: (jsonValue: string) => void;
+  refreshOnSubmit?: boolean; // 新增参数，控制提交后是刷新页面还是跳转页面
 }
 
 export interface UrlFormWebRef {
@@ -12,9 +15,12 @@ export interface UrlFormWebRef {
 
 export const UrlFormWeb = forwardRef<UrlFormWebRef, UrlFormWebProps>(({
   defaultValue,
-  autoFocus
+  autoFocus,
+  onJsonSubmit,
+  refreshOnSubmit = false // 默认为跳转页面
 }, ref) => {
   const [theme] = useTheme();
+  const navigate = useNavigate();
   const inputRef = useRef<HTMLInputElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
 
@@ -37,8 +43,20 @@ export const UrlFormWeb = forwardRef<UrlFormWebRef, UrlFormWebProps>(({
         JSON.parse(jsonValue);
         // 存储到 localStorage
         localStorage.setItem("browserJson", jsonValue);
-        // 在新页面中打开 /m/m
-        window.location.href = "/m/m/editor"
+
+        console.log("Stored JSON in localStorage:", jsonValue);
+        
+        // 如果父组件提供了 onJsonSubmit 回调，则调用它
+        if (onJsonSubmit) {
+          onJsonSubmit(jsonValue);
+        } else {
+          // 根据 refreshOnSubmit 参数决定是刷新页面还是跳转页面
+          if (refreshOnSubmit) {
+            window.location.reload();
+          } else {
+            navigate("/m/m");
+          }
+        }
       } catch (error) {
         alert("Invalid JSON format");
       }

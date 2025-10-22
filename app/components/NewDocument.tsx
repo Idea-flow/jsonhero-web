@@ -20,7 +20,7 @@ export function NewDocument() {
         : "bg-white/90 backdrop-blur-sm text-gray-800 border-gray-200"
     }`}>
       <div className="flex flex-col">
-        <UrlFormWeb/>
+        <UrlFormWeb refreshOnSubmit={true}/>
         <div className="relative my-6">
           <div className="absolute inset-0 flex items-center">
             <div className={`w-full border-t ${theme === "dark" ? "border-gray-700" : "border-gray-200"}`}></div>
@@ -33,7 +33,7 @@ export function NewDocument() {
           </div>
         </div>
 
-        <DragAndDropFormWeb/>
+        <DragAndDropFormWeb refreshOnSubmit={true}/>
 {/*        <div className="text-center mt-6">*/}
 {/*          <button*/}
 {/*              onClick={handleTryExample}*/}
