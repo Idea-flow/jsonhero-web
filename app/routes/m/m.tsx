@@ -29,7 +29,7 @@ export const meta: MetaFunction = () => {
 };
 
 // 从 localStorage 获取 browserJson 或使用默认数据
-let browserJson = {};
+let browserJson = null;
 if (typeof window !== "undefined") {
   try {
     const storedJson = localStorage.getItem("browserJson");

@@ -4,7 +4,7 @@ import { NewFileWeb } from "../NewFileWeb";
 import { ExtraLargeTitle } from "../Primitives/ExtraLargeTitle";
 import { SmallSubtitle } from "../Primitives/SmallSubtitle";
 import { useTheme } from "~/components/ThemeProvider";
-
+import { Link, useLocation, useNavigate } from "remix";
 import heroVideo from "~/assets/home/JsonHero2.mp4";
 
 const jsonHeroTitle = "JSON 查看器";

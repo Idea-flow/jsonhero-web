@@ -38,7 +38,7 @@ export const UrlFormWeb = forwardRef<UrlFormWebRef, UrlFormWebProps>(({
         // 存储到 localStorage
         localStorage.setItem("browserJson", jsonValue);
         // 在新页面中打开 /m/m
-        window.location.href = "/m/m"
+        window.location.href = "/m/m/editor"
       } catch (error) {
         alert("Invalid JSON format");
       }

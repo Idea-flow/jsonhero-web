@@ -46,7 +46,7 @@ export function DragAndDropFormWeb() {
           localStorage.setItem("browserJson", jsonValue);
 
           // 跳转到 /m/m 页面
-          window.location.href = "/m/m";
+          window.location.href = "/m/m/editor";
         } catch (error) {
           alert("JSON 文件格式错误");
         }

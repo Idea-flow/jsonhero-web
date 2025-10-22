@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { DragAndDropFormWeb } from "./DragAndDropFormWeb";
 import { useTheme } from "~/components/ThemeProvider";
 import { UrlFormWeb } from "~/components/UrlFormWeb";
+import { Link } from "remix";
 
 export function NewFileWeb() {
   const [theme] = useTheme();
@@ -10,7 +11,7 @@ export function NewFileWeb() {
 
   const handleTryExample = () => {
     const json = {
-  "title": "ideaflow在线工具站123",
+  "title": "ideaflow在线工具站",
   "json.url": "https://tools.ideaflow.top",
   "keywords": "json在线解析",
   "功能": [
@@ -40,17 +41,8 @@ export function NewFileWeb() {
   },
   "audio": "https://assets.ctfassets.net/bs8ntwkklfua/2NBIVPDF4o7cy0epTvPOwR/406cd5c17e9b01511f1e350bb96df352/Hall_Pass_Wow_3.mp3"
 };
-    setExampleJson(JSON.stringify(json, null, 2));
+    localStorage.setItem("browserJson", JSON.stringify(json, null, 2));
   };
-
-  useEffect(() => {
-    if (exampleJson && formRef.current) {
-      // 稍微延迟执行，确保组件已经渲染完成
-      setTimeout(() => {
-        formRef.current?.submit();
-      }, 0);
-    }
-  }, [exampleJson]);
 
   return (
     <div className="w-full max-w-2xl mx-auto">
@@ -77,7 +69,8 @@ export function NewFileWeb() {
       </div>
 
       <div className="text-center">
-        <button
+        <Link 
+          to="/m/m"
           onClick={handleTryExample}
           className={`inline-flex items-center justify-center px-6 py-3 font-medium rounded-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 ${
             theme === "dark"
@@ -86,7 +79,7 @@ export function NewFileWeb() {
           }`}
         >
           <span>示例</span>
-        </button>
+        </Link>
       </div>
     </div>
   );
