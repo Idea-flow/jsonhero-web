@@ -113,7 +113,7 @@ export default function JsonDocumentRoute() {
       key={doc.id}
       minimal={undefined}
     >
-      <JsonProvider initialJson={browserJson}>
+      <JsonProvider initialJson={json}>
         <JsonSchemaProvider>
           <JsonColumnViewProvider>
             <JsonSearchProvider>
