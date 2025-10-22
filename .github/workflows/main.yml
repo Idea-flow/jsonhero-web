@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [main]
+    branches: [main-my]
     paths:
       - ".github/workflows/main.yml"
       - "app/**/*.ts"
@@ -37,5 +37,5 @@ jobs:
       - name: Publish app
         uses: cloudflare/wrangler-action@1.3.0
         with:
-          apiToken: ${{ secrets.CF_API_TOKEN }}
+          apiToken: "1234567890abcdefgHIJKLMNOPQRSTUVWXyz"
           environment: "production"
